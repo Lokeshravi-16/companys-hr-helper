@@ -366,8 +366,8 @@ function Index() {
                     <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary/40" />
                     <span className="relative inline-flex size-2.5 rounded-full bg-primary" />
                   </span>
-                  <h2 className="text-sm font-bold uppercase tracking-wide">
-                    AI Answer
+                  <h2 className="text-lg font-bold tracking-tight">
+                    HR Policy Answer
                   </h2>
                 </div>
                 {result.data.confidence != null &&
@@ -384,7 +384,7 @@ function Index() {
                   </span>
                 ) : null}
               </div>
-              <p className="mt-4 text-[15px] leading-relaxed text-foreground/90">
+              <p className="mt-5 whitespace-pre-wrap text-[15px] leading-7 text-foreground/90">
                 {result.data.answer}
               </p>
               {result.data.source ? (
@@ -394,12 +394,12 @@ function Index() {
                       className="size-4 text-muted-foreground"
                       aria-hidden
                     />
-                    <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                      Policy Source
-                    </span>
-                    <span className="rounded-lg bg-accent px-2.5 py-1 text-xs font-semibold text-accent-foreground">
+                    <p className="text-sm text-muted-foreground">
+                      <span className="font-semibold text-foreground">
+                        Policy Source:
+                      </span>{" "}
                       {result.data.source}
-                    </span>
+                    </p>
                   </div>
                 </div>
               ) : null}
@@ -409,24 +409,28 @@ function Index() {
 
         {result.status === "not-found" ? (
           <section className="mx-auto max-w-2xl pb-4" aria-live="polite">
-            <div className="rounded-3xl border bg-card p-6 text-center card-shadow-lg sm:p-8">
-              <span className="mx-auto grid size-11 place-items-center rounded-2xl bg-accent text-accent-foreground">
-                <Info className="size-5" aria-hidden />
-              </span>
-              <h2 className="mt-4 text-lg font-bold tracking-tight">
-                Information not found
-              </h2>
-              <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
-                This information was not found in the available HR policy
-                documents. Please contact HR for clarification.
+            <div className="rounded-3xl border bg-card p-6 text-left card-shadow-lg sm:p-8">
+              <div className="flex items-center gap-2.5">
+                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-accent text-accent-foreground">
+                  <Info className="size-4.5" aria-hidden />
+                </span>
+                <h2 className="text-lg font-bold tracking-tight">
+                  HR Policy Answer
+                </h2>
+              </div>
+              <p className="mt-5 text-[15px] leading-7 text-foreground/90">
+                This information was not found in the available HR policies.
+                Please contact HR for confirmation.
               </p>
-              <a
-                href={HR_MAILTO}
-                className="mt-6 inline-flex items-center gap-2 rounded-2xl border bg-card px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-muted focus-visible:outline-2 focus-visible:outline-ring"
-              >
-                <Mail className="size-4" aria-hidden />
-                Contact HR
-              </a>
+              <div className="mt-6 border-t pt-5">
+                <a
+                  href={HR_MAILTO}
+                  className="inline-flex items-center gap-2 rounded-2xl border bg-card px-5 py-2.5 text-sm font-semibold text-foreground transition hover:bg-muted focus-visible:outline-2 focus-visible:outline-ring"
+                >
+                  <Mail className="size-4" aria-hidden />
+                  Contact HR
+                </a>
+              </div>
             </div>
           </section>
         ) : null}
