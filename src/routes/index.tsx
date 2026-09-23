@@ -306,7 +306,7 @@ function Index() {
                   {loading ? (
                     <>
                       <Loader2 className="size-4 animate-spin" aria-hidden />
-                      Searching
+                      Thinking…
                     </>
                   ) : (
                     <>
@@ -351,7 +351,7 @@ function Index() {
             <div className="flex items-center justify-center gap-3 rounded-3xl border bg-card p-8 card-shadow">
               <Loader2 className="size-5 animate-spin text-primary" aria-hidden />
               <span className="text-sm font-medium text-muted-foreground">
-                Searching
+                Thinking…
               </span>
             </div>
           </section>
@@ -441,8 +441,7 @@ function Index() {
                 Something went wrong
               </h2>
               <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
-                Unable to connect to the HR Policy Assistant right now. Please
-                try again later or contact HR.
+                Unable to connect to HR Assistant.
               </p>
               <button
                 type="button"
