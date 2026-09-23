@@ -39,8 +39,14 @@ export const askHrQuestion = createServerFn({ method: "POST" })
     }
 
     if (!response.ok) {
+      if (response.status === 404) {
+        throw new Error(
+          "The HR workflow isn't listening right now. In n8n, click \"Execute workflow\" and ask again, or activate the workflow and use its production URL.",
+        );
+      }
       throw new Error(`HR backend responded with status ${response.status}.`);
     }
+
 
     const raw = (await response.json().catch(() => null)) as {
       answer?: unknown;
